@@ -1,0 +1,35 @@
+<p>Listado de heroes</p>
+
+
+<div *ngIf="heroeBorrado; else noBorrado"> <!--El *ngIf es como un if comun pero con atributos del componente luego del ; se le puede poner un else de este lado con un template //Tyoescrpit cuando le hacemos un ngIf y le pasamos un atributo si esta vacio o null o undefined lo toma como false si tiene contenido lo toma como true-->
+    <h3>Heroe Borrado: <small>{{heroeBorrado}}</small></h3>
+    
+</div>
+
+<ng-template #noBorrado>    <!--una referencia local se marca con #, esto no existe del lado del componente solo del lado del template (lo que le dice ahi es si esta referencia no se cumple muestra este template)-->
+
+    <h3>No ha borrado nada.</h3>
+
+</ng-template>
+
+
+
+
+<!--
+
+    <div *ngIf="!heroeBorrado"> 
+    <h3>No ha borrado nada.</h3>
+    
+</div>
+
+-->
+
+<button (click)="borrarHeroe()">Borrar</button>
+
+
+<ul>
+    <li *ngFor="let heroe of heroes; let i = index"> <!--el *ngFor es como hacer un foreach pero se pone en la etiqueta e intancia algo del componente -->
+      {{i + 1}} - {{heroe}}
+    </li>
+</ul>
+
